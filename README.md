@@ -23,31 +23,7 @@ The project was developed as part of a technical seminar project. Its primary ob
 
 ## Software Architecture
 
-BNO085
-   │
-   ▼
-BNO_sensor.py
-   │
-   ▼
-IMU-Tracker.py
-   │
-   ├───────────────┐
-   ▼               │
- xyz.json          │
- Quaternion        │
-   │               │
-   ▼               │
-Sichtfeld_Marker.py ◄──────────────┐
-   ▲                               │
-   │                               │
- ai.json     dome.json     fov.json
-   │
-   ▼
-marker.json
-sichtfeld.json
-   │
-   ▼
-Visualizer.py
+BNO085 > BNO_sensor.py > IMU-Tracker.py > xyz.json - Quaternion > Sichtfeld_Marker.py -> ai.json   dome.json   fov.json > marker.json - sichtfeld.json > Visualizer.py
 
 ---
 
@@ -87,30 +63,25 @@ python main.py
 
 The modules communicate using JSON files.
 
-rohsen.json
-        │
-        ▼
-IMU-Tracker.py
-        │
-        ▼
+rohsen.json >
+IMU-Tracker.py >
 xyz.json
+->
 
 ai.json
 dome.json
 fov.json
 xyz.json
-        │
-        ▼
+->
 Sichtfeld_Marker.py
-        │
-        ├── marker.json
-        └── sichtfeld.json
+->
+marker.json
+sichtfeld.json
 
 marker.json
 sichtfeld.json
 xyz.json
-        │
-        ▼
+->
 Visualizer.py
 
 ---
